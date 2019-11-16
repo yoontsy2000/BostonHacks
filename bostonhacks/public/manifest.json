@@ -8,6 +8,11 @@
     "192": "logo192.png",
     "512": "logo512.png"
   },
+  "permissions": ["alarms"],
+  "background":{
+    "scripts": ["background.js"],
+    "persistent": false
+  },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },

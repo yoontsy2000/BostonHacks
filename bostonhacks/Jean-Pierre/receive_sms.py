@@ -16,12 +16,12 @@ from twilio.rest import Client
 app = Flask(__name__)
 
 # api account stuff
-account_sid = 'AC7fabac7430996e4dd2a0153bf0724e00'
-auth_token = 'd4e73d92a84495e0734a6b4caa2a6d5d'
-twilio_phone = '+12132124786'
+account_sid = 'YOUR_ACCOUNT_SID'
+auth_token = 'YOUR_AUTH_TOKEN'
+twilio_phone = 'YOUR_TWILIO_PHONE'
 
 # receiver phone number
-receiver = '+18608064163' # should be configurabe from front end
+receiver = 'YOUR_PHONE_NUM' # should be configurabe from front end
 
 # sets up the client
 client = Client(account_sid, auth_token)
@@ -138,8 +138,6 @@ def sms_reply():
     global introduction
     resp = MessagingResponse()
     resp.message("Oui oui, Jean-Pierre received your message!")
-    send_message('I noticed that you went to the gym three times this week, but you still havent mediated like you wanted to.')
-    send_message('It looks like that you have some free time this afternoon from 2:30PM to 4:00PM. Would that be a good time to meditate?')
     if introduction != True:
         send_message('Hello, my name is Jean Pierre, your Croissistant!')
         introduction = True

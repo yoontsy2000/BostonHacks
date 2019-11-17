@@ -40,7 +40,7 @@ def main():
     calendar_ids = []
     for i in range(len(result['items'])):
        calendar_ids.append(result['items'][i]['id'])
-    startT = datetime(2019, 11, 14, 0, 0)
+    startT = datetime.today()
     endT = startT + timedelta(hours=24)
     query_body = {
            "timeMin": startT.strftime("%Y-%m-%dT%H:%M:%S"+"Z"),
@@ -52,7 +52,49 @@ def main():
     busys = []
     for i in range(len(calendar_ids)):
         busys.append(query_result['calendars'][calendar_ids[i]]['busy'])
-    print(busys)
+
+def get_freetime(busys, begin_day, end_day):
+    # beginning_time = '2019-11-17T08:00:00Z'
+    # finish_time = '2019-11-17T22:00:00Z'
+    final_time_list = extract_time(busys)
+    time_list = []
+    if begin_day <= final_time_list[0]:
+        time_list.append(begin_day)
+    for i in range(len(final_time_list)-1):
+        if i % 2 == 0:
+            start_block = final_time_list[i]
+            end_block = final_time_list[i+1]
+            if begin_day <= start_block:
+                time_list.append(start_block)
+            if end_day >= end_block: 
+                time_list.append(end_block)
+    if end_day >= final_time_list[len(final_time_list)-1]:
+        time_list.append(end_day)
+
+    print('time list is')
+    print(time_list)
+    free_times = []
+    # first_free = {'start': begin_day, 'end': time_list[0]}
+    # free_times.append(first_free)
+    # time_list = time_list[1:]
+    while len(time_list) > 1:
+        free_period = {'start': time_list[0], 'end': time_list[1]}
+        free_times.append(free_period)
+        time_list = time_list[2:]
+    # last_period = {'start': time_list[0], 'end': end_day}
+    # free_times.append(last_period)
+    
+    return free_times
+
+def extract_time(list):
+    array = []
+    for i in list:
+        for event in i:
+            event_start = event['start']
+            event_end = event['end']
+            array.append(event_start)
+            array.append(event_end)
+    return array
 
 if __name__ == '__main__':
     main()

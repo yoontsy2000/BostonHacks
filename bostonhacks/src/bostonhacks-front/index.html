@@ -96,7 +96,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Phone Number</span>
                       </div>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Enter your phone number">
+                      <input id="phoneNum" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Enter your phone number">
                     </div>
                   </div>
                           <div class="col-md-6">
@@ -104,7 +104,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Start Time</span>
                       </div>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Start Time">
+                      <input id="startT" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Start Time">
                     </div>
                           </div>
                     <div class="col-md-6">
@@ -112,10 +112,10 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-sm">End Time</span>
                           </div>
-                          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="End Time">
+                          <input id="endT" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="End Time">
                         </div>
                       </div>
-                      <button class="sub" type="submit">Submit</button>
+                      <button id="signUp"class="sub" type="submit">Submit</button>
             </div>
           </div>
         
@@ -130,18 +130,14 @@
         <div class="col-lg-8 text-center">
           <h2 id = "task_title"> Tasks </h2>
           <hr class="divider my-4" id = "divide2">
-          <p id = "task_title">Check off what you completed today :)</p>
+          <p id = "task_title">These are your tasks for today :)</p>
           <table id=taskTable align="center">
-            <td  id="taskList">
-                <ul style="list-style-type:none;" text-align="left">
-                    <li id="timeText">task</li>
-                    <li id="timeText">task</li>
+            <td>
+                <ul id="taskList" style="list-style-type:none;" text-align="left">
                   </ul>
             </td>
-            <td  id="timeList">
-              <ul style="list-style-type:none; color:white;" text-align="left">
-                <li id="timeText">time</li>
-                <li id="timeText">t</li>
+            <td>
+              <ul id="timeList" style="list-style-type:none; color:white;" text-align="left">
               </ul>
             </td>
 
@@ -154,7 +150,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-sm">Task</span>
             </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Enter a task">
+            <input id="taskInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Enter a task">
           </div>
         </div>
                  <div class="col-md-6">
@@ -162,7 +158,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-sm">Time</span>
             </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="how many minutes?">
+            <input id="timeInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="how many minutes?">
           </div>
           
         </div>
@@ -192,8 +188,9 @@
   <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
+
 
 </body>
-
+  <script src="js/creative.min.js"></script>
+  <script type="text/javascript" src="webpage-BE.js"></script>
 </html>

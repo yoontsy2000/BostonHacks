@@ -52,11 +52,14 @@ def main():
     busys = []
     for i in range(len(calendar_ids)):
         busys.append(query_result['calendars'][calendar_ids[i]]['busy'])
+    print("\n" + get_freetime(busys, '2019-11-17T08:00:00Z', '2019-11-17T22:00:00Z') + "\n")
 
 def get_freetime(busys, begin_day, end_day):
     # beginning_time = '2019-11-17T08:00:00Z'
     # finish_time = '2019-11-17T22:00:00Z'
     final_time_list = extract_time(busys)
+    print('final time list is')
+    print(final_time_list)
     time_list = []
     if begin_day <= final_time_list[0]:
         time_list.append(begin_day)
@@ -74,9 +77,6 @@ def get_freetime(busys, begin_day, end_day):
     print('time list is')
     print(time_list)
     free_times = []
-    # first_free = {'start': begin_day, 'end': time_list[0]}
-    # free_times.append(first_free)
-    # time_list = time_list[1:]
     while len(time_list) > 1:
         free_period = {'start': time_list[0], 'end': time_list[1]}
         free_times.append(free_period)

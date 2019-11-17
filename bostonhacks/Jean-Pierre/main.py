@@ -1,16 +1,13 @@
-from twilio.rest import Client
+from flask import Flask
+from flask_ngrok import run_with_ngrok
 
-account_sid = 'AC7fabac7430996e4dd2a0153bf0724e00'
-auth_token = 'd4e73d92a84495e0734a6b4caa2a6d5d'
-twilio_phone = '+12055489911'
-receiver = '+18608064163'
+app = Flask(__name__)
+run_with_ngrok(app)
 
-client = Client(account_sid, auth_token)
+@app.route('/')
 
-message = client.messages.create(
-    to= receiver,
-    from_= twilio_phone,
-    body='Bonjour, my name is Jean-Pierre. I am your Coi-ssistant!'
-)
+def hello_world():
+    return 'Hello World!'
 
-print(message.sid)
+if __name__ == '__main__':
+    app.run()

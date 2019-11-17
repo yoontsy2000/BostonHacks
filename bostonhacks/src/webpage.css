@@ -1,0 +1,17 @@
+html {
+  background-color: #222629;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  font: white;
+  background: transparent;
+  color: white;
+}
+
+.navbar {
+    background-color: #FFAE00;
+    font-size: 52px;
+    font-weight: bolder;
+    width: 16%
+}
